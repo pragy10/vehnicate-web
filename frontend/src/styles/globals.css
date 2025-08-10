@@ -1,0 +1,67 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, #32055C 0%, #BE326C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .vehnicate-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    background: linear-gradient(135deg, #32055C 0%, #BE326C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(190, 50, 108, 0.2);
+    border-radius: 12px;
+  }
+  
+  .btn-primary {
+    @apply bg-vehnicate-gradient hover:bg-vehnicate-gradient-reverse text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105;
+    box-shadow: 0 4px 15px rgba(190, 50, 108, 0.3);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(190, 50, 108, 0.5);
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-vehnicate-pink text-vehnicate-pink hover:bg-vehnicate-pink hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #32055C, #BE326C);
+  border-radius: 3px;
+}
