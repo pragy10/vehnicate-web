@@ -21,6 +21,9 @@ export default {
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'alumni' : [ 'Alumni Sans Pinstripe', 'sans-serif'],
+        'michroma': ["Michroma", 'sans-serif'],
+        'ledger' : ["Ledger", 'serif']
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

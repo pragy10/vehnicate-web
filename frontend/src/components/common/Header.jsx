@@ -36,9 +36,7 @@ const Header = () => {
       {/* BACKGROUND PATCHES FOR HEADER */}
       {isScrolled && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Left patch */}
           <div className="absolute top-0 -left-20 w-40 h-20 bg-gradient-to-r from-purple-600/15 to-pink-600/10 rounded-full blur-2xl opacity-60" />
-          {/* Right patch */}
           <div className="absolute top-0 -right-20 w-40 h-20 bg-gradient-to-l from-pink-600/15 to-purple-600/10 rounded-full blur-2xl opacity-60" />
         </div>
       )}
@@ -53,10 +51,9 @@ const Header = () => {
             onClick={() => scrollToSection('#hero')}
           >
             <motion.span 
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent"
-              whileHover={{ 
-                backgroundImage: 'linear-gradient(to right, #a855f7, #ec4899, #a855f7, #ec4899)',
-              }}
+              // 1. ADDED 'font-alumni' TO THE LOGO
+              className="font-ledger text-3xl text-white"
+             
               transition={{ duration: 0.3 }}
             >
               vehnicate
@@ -65,7 +62,8 @@ const Header = () => {
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
+            {/* 2. ADDED 'font-alumni' TO THE PARENT DIV FOR NAVIGATION LINKS */}
+            <div className="flex items-center space-x-8 font-alumni font-bold text-2xl">
               {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -75,29 +73,24 @@ const Header = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-white transition-all duration-300 relative group font-medium"
+                  // Note: font-medium is still useful for selecting the font weight (e.g., 500)
+                  className="text-gray-300 transition-all duration-300 relative group font-medium hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:bg-clip-text hover:text-transparent"
                 >
                   {item.name}
                   
-                  {/* Enhanced underline animation */}
                   <motion.span 
                     className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
                     initial={{ width: 0 }}
                     whileHover={{ width: '100%' }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
-                  
-                  {/* Glow effect on hover */}
-                  <motion.span 
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                    whileHover={{ scale: 1.1 }}
-                  />
                 </motion.button>
               ))}
             </div>
           </div>
 
-          {/* Enhanced Mobile menu button */}
+          {/* ... rest of the component remains the same ... */}
+          
           <div className="md:hidden">
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -136,14 +129,13 @@ const Header = () => {
             animate={{ scale: isMobileMenuOpen ? 1 : 0.95 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Mobile menu background with patches */}
             <div className="absolute inset-0 bg-black/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-              {/* Mobile menu background patches */}
               <div className="absolute top-0 -left-10 w-32 h-16 bg-gradient-to-r from-purple-600/20 to-pink-600/15 rounded-full blur-xl opacity-50" />
               <div className="absolute bottom-0 -right-10 w-32 h-16 bg-gradient-to-l from-pink-600/20 to-purple-600/15 rounded-full blur-xl opacity-50" />
             </div>
             
-            <div className="relative z-10 px-6 py-4 space-y-2">
+            {/* THIS PART WAS ALREADY CORRECT! It will now work. */}
+            <div className="relative z-10 px-6 py-4 space-y-2 font-alumni">
               {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -160,7 +152,6 @@ const Header = () => {
                 >
                   <span className="relative z-10">{item.name}</span>
                   
-                  {/* Mobile item glow */}
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     whileHover={{ scale: 1.02 }}
@@ -168,7 +159,6 @@ const Header = () => {
                 </motion.button>
               ))}
               
-              {/* Mobile menu footer */}
               <motion.div 
                 className="pt-4 mt-4 border-t border-white/10"
                 initial={{ opacity: 0 }}

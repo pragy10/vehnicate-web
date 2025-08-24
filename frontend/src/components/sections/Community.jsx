@@ -96,13 +96,9 @@ const Community = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center mb-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-purple-500"></div>
-            <span className="mx-4 text-sm font-medium text-purple-400 uppercase tracking-wider">Community</span>
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-pink-500"></div>
-          </div>
+          
 
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-8xl font-alumni font-bold mb-6 text-white">
             Join Our <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Community</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

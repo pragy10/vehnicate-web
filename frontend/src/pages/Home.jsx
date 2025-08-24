@@ -7,6 +7,7 @@ import Working from '../components/sections/Working'
 import Team from '../components/sections/Team'
 import Community from '../components/sections/Community'
 import Contact from '../components/sections/Contact'
+import Waitlist from '../components/sections/Waitlist'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Working />
       <Team />
       <Community />
+      <Waitlist/>
       <Contact />
       <Footer />
     </div>
