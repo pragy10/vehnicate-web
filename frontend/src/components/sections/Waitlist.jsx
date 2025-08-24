@@ -1,45 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Waitlist = () => {
-  // This useEffect hook handles loading the Tally widget script
-  useEffect(() => {
-    // Check if the Tally object already exists (e.g., from navigating between pages)
-    if (typeof Tally !== 'undefined') {
-      Tally.loadEmbeds();
-      return;
-    }
+  const navigate = useNavigate();
 
-    // Check if the script is already in the document
-    if (document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
-      return;
-    }
-
-    // If not, create and append the script
-    const script = document.createElement('script');
-    script.src = 'https://tally.so/widgets/embed.js';
-    script.async = true;
-    
-    // Define the function to load embeds once the script is ready
-    const loadTally = () => {
-      if (typeof Tally !== 'undefined') {
-        Tally.loadEmbeds();
-      }
-    };
-
-    script.onload = loadTally;
-    script.onerror = () => console.error('Failed to load Tally script.');
-
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script if the component unmounts
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []); // The empty array ensures this effect runs only once when the component mounts
+  const handleJoinWaitlist = () => {
+    navigate('/waitlist');
+  };
 
   return (
     <section id="waitlist" className="min-h-screen w-full flex items-center justify-center bg-black relative overflow-hidden px-4 py-20">
@@ -70,23 +39,22 @@ const Waitlist = () => {
           </h2>
 
           <p className="text-lg text-gray-300 max-w-md mx-auto mb-8 font-ledger">
-            Be the first to know when we launch. Get exclusive access, updates, and become part of our founding community.
+            Be the first to know when we launch. Get exclusive access, updates, and become part of the hn ecosystem
           </p>
 
-          {/* The Tally form is embedded here */}
-          {/* UPDATED: Increased width from max-w-md to max-w-lg */}
-          <div className="w-full max-w-lg mx-auto">
-            <iframe
-              data-tally-src="https://tally.so/embed/mO2ZQp?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              loading="lazy"
-              width="100%"
-              height="200" // UPDATED: Decreased height from 250 to 200
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-              title="Join the Waitlist!"
-            ></iframe>
-          </div>
+          <motion.button
+            onClick={handleJoinWaitlist}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+          >
+            <span>Join Waitlist</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+            
+            {/* Hover effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+          </motion.button>
         </div>
       </motion.div>
     </section>

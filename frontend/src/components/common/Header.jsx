@@ -53,7 +53,7 @@ const Header = () => {
             <motion.span 
               // 1. ADDED 'font-alumni' TO THE LOGO
               className="font-ledger text-3xl text-white"
-             
+              
               transition={{ duration: 0.3 }}
             >
               vehnicate

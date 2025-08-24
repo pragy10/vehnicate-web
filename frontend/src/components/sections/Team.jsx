@@ -90,7 +90,7 @@ const Team = () => {
     {
       id: 8,
       name: "Prathish Dev",
-      role: "Technical Member",
+      role: "Finance & Strategic Partnerships",
       image: "/api/placeholder/300/400",
       social: {
         github: "https://github.com/michael-chang",
@@ -101,7 +101,7 @@ const Team = () => {
     {
       id: 9,
       name: "Rahul R",
-      role: "Technical Member",
+      role: "Technical Member, hn RPS",
       image: "/api/placeholder/300/400",
       social: {
         github: "https://github.com/Rahul2671",
