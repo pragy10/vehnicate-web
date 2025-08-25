@@ -62,7 +62,7 @@ const Header = () => {
             <img 
               src="/hn-logo.png" 
               alt="Vehnicate Logo" 
-              className="h-8 sm:h-10 md:h-12 mr-2 sm:mr-3" 
+              className="h-9 sm:h-10 md:h-12 mr-2 sm:mr-3" 
               onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/40x40/000000/FFFFFF?text=Error'; }}
             />
             <motion.span 
