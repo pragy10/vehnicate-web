@@ -76,23 +76,23 @@ const Hero = () => {
 
       {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between min-h-[60vh] gap-10">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between min-h-[60vh] gap-6 lg:gap-10">
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="space-y-8 max-w-2xl text-left"
+            className="space-y-4 sm:space-y-6 lg:space-y-8 max-w-2xl text-center lg:text-left w-full lg:w-auto"
           >
             {/* Announcement */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full backdrop-blur-sm"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-gray-300">
+              <span className="text-xs sm:text-sm font-medium text-gray-300">
                 Now in Beta • Join the Revolution
               </span>
             </motion.div>
@@ -102,12 +102,15 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[0.9] tracking-tight"
+              className="font-black leading-tight tracking-tight"
             >
-              <div className="font-ledger text-white mb-2 text-3xl md:7xl">
+              {/* Main heading text */}
+              <div className="font-ledger text-white mb-2 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
                 Empowering the nation to drive more
               </div>
-              <div className="relative text-9xl py">
+              
+              {/* Rotating word with proper responsive sizing */}
+              <div className="relative py-2 sm:py-4 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentWordIndex}
@@ -118,7 +121,7 @@ const Hero = () => {
                       duration: 0.6,
                       ease: [0.25, 0.46, 0.45, 0.94],
                     }}
-                    className="font-ledger text-9xl bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent inline-block"
+                    className="font-ledger bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
                   >
                     {rotatingWords[currentWordIndex]}
                   </motion.span>
@@ -131,7 +134,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-xl text-gray-300 leading-relaxed max-w-xl font-ledger"
+              className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl font-ledger mx-auto lg:mx-0"
             >
               Where every movement is quantified, every humane act is paid off,
               and every journey becomes an experience.
@@ -139,12 +142,11 @@ const Hero = () => {
           </motion.div>
 
           {/* RIGHT SIDE - IMAGE CONTAINER */}
-          {/* Step 1: Add a relative container to hold both images */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center relative">
+          <div className="w-full lg:w-1/2 flex justify-center items-center relative max-w-md sm:max-w-lg lg:max-w-none">
             {/* Base Image (the original one) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 0.5, scale: 2 }}
+              animate={{ opacity: 0.5, scale: 1.5 }}
               transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
               className="w-full flex justify-center"
             >
@@ -155,19 +157,21 @@ const Hero = () => {
               />
             </motion.div>
 
-            {/* Step 2: Add the new overlay image, positioned absolutely */}
+            {/* Overlay image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1.2 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2, duration: 1, type: "spring", stiffness: 100 }}
               className="absolute inset-0 flex justify-center items-center"
             >
-              {/* You can change the src of this image to your own */}
               <img
                 src="/car_dam.png"
                 alt="Hero Illustration Overlay"
-                className="w-full" // Example styling, adjust as needed
-                onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x400/000000/FFFFFF?text=Image+Error'; }}
+                className="w-3/4 sm:w-4/5 lg:w-full max-w-sm sm:max-w-md lg:max-w-none h-auto"
+                onError={(e) => { 
+                  e.target.onerror = null; 
+                  e.target.src='https://placehold.co/400x400/000000/FFFFFF?text=Image+Error'; 
+                }}
               />
             </motion.div>
           </div>
