@@ -4,9 +4,9 @@ import { Mail, Phone, Send, CheckCircle, Linkedin } from "lucide-react";
 
 // Reusable glassmorphism card (same as About component)
 const Card = ({ children, className = '' }) => (
-  <div className={`relative rounded-2xl border border-white/10 backdrop-blur-md bg-white/5 shadow-lg shadow-purple-500/5 ${className}`}>
+  <div className={`relative rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-md bg-white/5 shadow-lg shadow-purple-500/5 ${className}`}>
     {/* Animated gradient border */}
-    <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-purple-500/40 transition-all duration-500"></div>
+    <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-transparent group-hover:border-purple-500/40 transition-all duration-500"></div>
     {/* Subtle light streak */}
     <div className="absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
     {children}
@@ -42,19 +42,19 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-8 h-8" />,
+      icon: <Mail className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Email Us",
       details: "hello@vehnicate.com",
       action: "mailto:hello@vehnicate.com",
     },
     {
-      icon: <Phone className="w-8 h-8" />,
+      icon: <Phone className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Call Us",
       details: "+91 77081 61551",
       action: "tel:+917708161551",
     },
     {
-      icon: <Linkedin className="w-8 h-8" />,
+      icon: <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Connect via LinkedIn",
       details: "",
       action: "https://www.linkedin.com/company/vehnicate/",
@@ -62,7 +62,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/5 to-purple-900/10"></div>
@@ -70,37 +70,37 @@ const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
       </div>
 
-      {/* Light blobs */}
+      {/* Light blobs - Made responsive */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-purple-600/25 to-pink-600/15 rounded-full blur-3xl opacity-60" />
-        <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-gradient-to-r from-pink-600/20 to-purple-600/15 rounded-full blur-3xl opacity-70" />
-        <div className="absolute bottom-0 -right-40 w-[400px] h-[400px] bg-gradient-to-l from-purple-600/20 to-pink-600/15 rounded-full blur-3xl opacity-70" />
+        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-80 h-64 sm:w-96 sm:h-80 lg:w-[600px] lg:h-[400px] bg-gradient-to-b from-purple-600/25 to-pink-600/15 rounded-full blur-3xl opacity-60" />
+        <div className="absolute bottom-0 -left-20 sm:-left-32 lg:-left-40 w-64 h-64 sm:w-80 sm:h-80 lg:w-[500px] lg:h-[500px] bg-gradient-to-r from-pink-600/20 to-purple-600/15 rounded-full blur-3xl opacity-70" />
+        <div className="absolute bottom-0 -right-20 sm:-right-32 lg:-right-40 w-56 h-56 sm:w-72 sm:h-72 lg:w-[400px] lg:h-[400px] bg-gradient-to-l from-purple-600/20 to-pink-600/15 rounded-full blur-3xl opacity-70" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
+        {/* Header - Made responsive */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-8xl font-ledger font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-ledger font-bold mb-4 sm:mb-6 text-white leading-tight">
             Get In{" "}
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-ledger">
-            Have questions about vehnicate? Want to partner with us? <br />
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed font-ledger max-w-4xl mx-auto px-4 sm:px-0">
+            Have questions about vehnicate? Want to partner with us? <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
               We'd love to hear from you!
             </span>
           </p>
         </motion.div>
 
-        <div className="font-ledger grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="font-ledger grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -108,10 +108,10 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold font-ledger text-white mb-8">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold font-ledger text-white mb-6 sm:mb-8">
               Contact Information
             </h3>
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -123,26 +123,26 @@ const Contact = () => {
                 >
                   <a href={info.action} className="block">
                     <Card className="group hover:scale-[1.03] transition-transform duration-500">
-                      <div className="relative p-6">
-                        {/* Floating icon - same style as About component */}
-                        <div className="absolute -top-6 left-6 w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-xl shadow-purple-500/30 transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500">
+                      <div className="relative p-4 sm:p-6">
+                        {/* Floating icon - Made responsive */}
+                        <div className="absolute -top-4 sm:-top-6 left-4 sm:left-6 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl shadow-purple-500/30 transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500">
                           <div className="text-white">{info.icon}</div>
                         </div>
 
                         {/* Content */}
-                        <div className="mt-8">
-                          <h4 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
+                        <div className="mt-6 sm:mt-8">
+                          <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300 leading-tight">
                             {info.title}
                           </h4>
                           {info.details && (
-                            <p className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300">
+                            <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-200 transition-colors duration-300 mt-1">
                               {info.details}
                             </p>
                           )}
                         </div>
 
                         {/* Hover overlay */}
-                        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
+                        <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
                       </div>
                     </Card>
                   </a>
@@ -156,21 +156,21 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-10 group"
+              className="mt-8 sm:mt-10 group"
             >
               <Card className="group hover:scale-[1.02] transition-transform duration-500">
-                <div className="relative p-6">
-                  <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                <div className="relative p-4 sm:p-6">
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 group-hover:text-purple-300 transition-colors duration-300">
                     Business Hours
                   </h4>
-                  <div className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 space-y-1">
+                  <div className="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 space-y-1 text-sm sm:text-base">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 10:00 AM - 4:00 PM</p>
                     <p>Sunday: Closed</p>
                   </div>
                   
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
                 </div>
               </Card>
             </motion.div>
@@ -185,11 +185,11 @@ const Contact = () => {
             className="group"
           >
             <Card className="group hover:scale-[1.02] transition-transform duration-500">
-              <div className="relative p-8">
+              <div className="relative p-6 sm:p-8">
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                         Name
                       </label>
                       <input
@@ -198,13 +198,13 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
                         placeholder="Your Name"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                         Email
                       </label>
                       <input
@@ -213,13 +213,13 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
                         placeholder="your@email.com"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                         Subject
                       </label>
                       <input
@@ -228,13 +228,13 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
                         placeholder="What's this about?"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                         Message
                       </label>
                       <textarea
@@ -242,8 +242,8 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={5}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300 resize-none"
+                        rows={4}
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300 resize-none"
                         placeholder="Tell us more..."
                       />
                     </div>
@@ -252,11 +252,10 @@ const Contact = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center group"
+                      className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-sm sm:text-base rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center group"
                     >
                       <Send
-                        className="mr-2 group-hover:translate-x-1 transition-transform"
-                        size={20}
+                        className="mr-2 group-hover:translate-x-1 transition-transform w-4 h-4 sm:w-5 sm:h-5"
                       />
                       Send Message
                     </motion.button>
@@ -265,20 +264,20 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-8"
+                    className="text-center py-6 sm:py-8"
                   >
-                    <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-400 mx-auto mb-3 sm:mb-4" />
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       Message Sent!
                     </h3>
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       Thank you for reaching out. We'll get back to you soon!
                     </p>
                   </motion.div>
                 )}
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500"></div>
               </div>
             </Card>
           </motion.div>

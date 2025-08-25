@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import { Github, Linkedin, Mail, Twitter, ChevronLeft, ChevronRight, Users, Award, Clock } from 'lucide-react'
-// Step 2.1: Import motion and AnimatePresence from Framer Motion
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Team = () => {
@@ -8,7 +7,6 @@ const Team = () => {
   const leadersRef = useRef(null)
   const engineersRef = useRef(null)
 
-  // --- No changes to your data arrays (leaders, engineers) ---
   const leaders = [
     {
       id: 1,
@@ -113,12 +111,13 @@ const Team = () => {
       }
     }
   ]
-  // --- No changes to your scroll function ---
+
+  // Updated responsive scroll function
   const scroll = (direction, ref) => {
     if (ref.current) {
       const container = ref.current
-      const cardWidth = 320 
-      const scrollAmount = cardWidth * 2 
+      const cardWidth = window.innerWidth < 640 ? 280 : window.innerWidth < 1024 ? 300 : 320 
+      const scrollAmount = cardWidth * (window.innerWidth < 640 ? 1 : 2)
       
       const currentScroll = container.scrollLeft
       const targetScroll = direction === 'left' 
@@ -132,34 +131,34 @@ const Team = () => {
     }
   }
 
-  // --- No changes to your TeamCard component ---
+  // Updated responsive TeamCard component
   const TeamCard = ({ member }) => (
-    <div className="flex-shrink-0 w-80 p-4 group">
+    <div className="flex-shrink-0 w-72 sm:w-80 lg:w-80 p-2 sm:p-4 group">
       <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden group-hover:border-purple-500/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
-        <div className="relative h-64 bg-gradient-to-br from-purple-600/20 to-pink-600/20">
+        <div className="relative h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-purple-600/20 to-pink-600/20">
           <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-            <div className="text-6xl text-gray-600 group-hover:scale-110 transition-transform duration-300">👤</div>
+            <div className="text-4xl sm:text-5xl lg:text-6xl text-gray-600 group-hover:scale-110 transition-transform duration-300">👤</div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           
-          <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-            <a href={member.social.github} className="p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-200 hover:scale-110">
-              <Github size={16} />
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <a href={member.social.github} className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-200 hover:scale-110">
+              <Github size={14} className="sm:w-4 sm:h-4" />
             </a>
-            <a href={member.social.linkedin} className="p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-pink-600/50 transition-all duration-200 hover:scale-110">
-              <Linkedin size={16} />
+            <a href={member.social.linkedin} className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-pink-600/50 transition-all duration-200 hover:scale-110">
+              <Linkedin size={14} className="sm:w-4 sm:h-4" />
             </a>
-            <a href={`mailto:${member.social.email}`} className="p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-200 hover:scale-110">
-              <Mail size={16} />
+            <a href={`mailto:${member.social.email}`} className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-200 hover:scale-110">
+              <Mail size={14} className="sm:w-4 sm:h-4" />
             </a>
           </div>
         </div>
 
-        <div className="p-6">
-          <h3 className="text-lg font-bold font-ledger text-white mb-1 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+        <div className="p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-bold font-ledger text-white mb-1 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 leading-tight">
             {member.name}
           </h3>
-          <p className="text-gray-400 font-ledger text-sm group-hover:text-purple-300 transition-colors duration-300">
+          <p className="text-gray-400 font-ledger text-xs sm:text-sm group-hover:text-purple-300 transition-colors duration-300 leading-relaxed">
             {member.role}
           </p>
         </div>
@@ -167,23 +166,22 @@ const Team = () => {
     </div>
   )
 
-  // Step 2.2: Define animation variants
+  // Animation variants
   const carouselVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        // This will make each child card animate in one after the other
         staggerChildren: 0.1
       }
     }
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 }, // Start slightly down and faded out
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
-      y: 0, // Animate to original position and full opacity
+      y: 0,
       transition: {
         duration: 0.5
       }
@@ -191,30 +189,30 @@ const Team = () => {
   }
 
   return (
-    <section id="team" className="py-20 bg-black relative overflow-hidden">
-        {/* --- No changes to background elements --- */}
-        <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/3 to-purple-900/8"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/2 to-pink-600/5"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
-        </div>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-10 -right-32 w-[500px] h-[500px] bg-gradient-to-l from-purple-600/30 to-pink-600/20 rounded-full blur-3xl opacity-40" />
-            <div className="absolute bottom-10 -left-32 w-[600px] h-[600px] bg-gradient-to-r from-pink-600/30 to-purple-600/20 rounded-full blur-3xl opacity-40" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-purple-600/15 to-pink-600/15 rounded-full blur-2xl opacity-40" />
-        </div>
+    <section id="team" className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden">
+      {/* Background elements - made responsive */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/3 to-purple-900/8"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/2 to-pink-600/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+      </div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 -right-16 sm:-right-24 lg:-right-32 w-64 h-64 sm:w-80 sm:h-80 lg:w-[500px] lg:h-[500px] bg-gradient-to-l from-purple-600/30 to-pink-600/20 rounded-full blur-3xl opacity-40" />
+        <div className="absolute bottom-10 -left-16 sm:-left-24 lg:-left-32 w-72 h-72 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] bg-gradient-to-r from-pink-600/30 to-purple-600/20 rounded-full blur-3xl opacity-40" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-[400px] lg:h-[400px] bg-gradient-to-br from-purple-600/15 to-pink-600/15 rounded-full blur-2xl opacity-40" />
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* --- No changes to Header and Toggle Switch --- */}
-        <div className="text-center mb-12">
-          <h2 className="text-8xl font-ledger font-bold mb-8 text-white">
+        {/* Header and Toggle Switch - made responsive */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-ledger font-bold mb-4 sm:mb-6 lg:mb-8 text-white leading-tight">
             Meet Our <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Team</span>
           </h2>
           
-          <div className="inline-flex bg-gray-800/50 backdrop-blur-sm rounded-2xl p-1 border border-gray-700/50">
+          <div className="inline-flex bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-0.5 sm:p-1 border border-gray-700/50">
             <button
               onClick={() => setActiveTab('leaders')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
                 activeTab === 'leaders'
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
                   : 'text-gray-400 hover:text-white'
@@ -224,7 +222,7 @@ const Team = () => {
             </button>
             <button
               onClick={() => setActiveTab('engineers')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
                 activeTab === 'engineers'
                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
                   : 'text-gray-400 hover:text-white'
@@ -235,11 +233,9 @@ const Team = () => {
           </div>
         </div>
 
-        {/* Step 2.3: Wrap the conditional rendering with AnimatePresence */}
+        {/* Animated carousel sections */}
         <AnimatePresence mode="wait">
           {activeTab === 'leaders' && (
-            // Step 2.4: Convert the container to a motion.div and apply variants
-            // The `key` is crucial for AnimatePresence to know this is a new component
             <motion.div
               key="leaders"
               variants={carouselVariants}
@@ -248,21 +244,20 @@ const Team = () => {
               exit="hidden"
               className="relative"
             >
-              <div className="flex items-center mb-4">
-                <h3 className="text-2xl font-bold font-ledger text-white">Leadership Team</h3>
-                <div className="ml-auto flex gap-2">
-                  <button onClick={() => scroll('left', leadersRef)} className="p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
-                    <ChevronLeft size={20} />
+              <div className="flex items-center mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold font-ledger text-white">Leadership Team</h3>
+                <div className="ml-auto flex gap-1 sm:gap-2">
+                  <button onClick={() => scroll('left', leadersRef)} className="p-2 sm:p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
+                    <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
                   </button>
-                  <button onClick={() => scroll('right', leadersRef)} className="p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
-                    <ChevronRight size={20} />
+                  <button onClick={() => scroll('right', leadersRef)} className="p-2 sm:p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
+                    <ChevronRight size={16} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
               
-              <div ref={leadersRef} className="flex gap-2 overflow-x-auto scrollbar-hide py-4 px-4 -mx-4">
+              <div ref={leadersRef} className="flex gap-1 sm:gap-2 overflow-x-auto scrollbar-hide py-2 sm:py-4 px-2 sm:px-4 -mx-2 sm:-mx-4">
                 {leaders.map((member) => (
-                  // Step 2.5: Wrap each card in a motion.div and apply card variants
                   <motion.div key={member.id} variants={cardVariants} style={{ scrollSnapAlign: 'start' }}>
                     <TeamCard member={member} />
                   </motion.div>
@@ -272,7 +267,6 @@ const Team = () => {
           )}
 
           {activeTab === 'engineers' && (
-            // Do the same for the engineers carousel
             <motion.div
               key="engineers"
               variants={carouselVariants}
@@ -281,19 +275,19 @@ const Team = () => {
               exit="hidden"
               className="relative"
             >
-              <div className="flex items-center mb-4">
-                <h3 className="text-2xl font-bold font-ledger text-white">Engineering Team</h3>
-                <div className="ml-auto flex gap-2">
-                  <button onClick={() => scroll('left', engineersRef)} className="p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
-                    <ChevronLeft size={20} />
+              <div className="flex items-center mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold font-ledger text-white">Engineering Team</h3>
+                <div className="ml-auto flex gap-1 sm:gap-2">
+                  <button onClick={() => scroll('left', engineersRef)} className="p-2 sm:p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
+                    <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
                   </button>
-                  <button onClick={() => scroll('right', engineersRef)} className="p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
-                    <ChevronRight size={20} />
+                  <button onClick={() => scroll('right', engineersRef)} className="p-2 sm:p-3 bg-gray-800/50 hover:bg-purple-600/20 rounded-lg border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 text-gray-400 hover:text-white hover:scale-110">
+                    <ChevronRight size={16} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
               
-              <div ref={engineersRef} className="flex gap-2 overflow-x-auto scrollbar-hide py-4 px-4 -mx-4">
+              <div ref={engineersRef} className="flex gap-1 sm:gap-2 overflow-x-auto scrollbar-hide py-2 sm:py-4 px-2 sm:px-4 -mx-2 sm:-mx-4">
                 {engineers.map((member) => (
                   <motion.div key={member.id} variants={cardVariants} style={{ scrollSnapAlign: 'start' }}>
                     <TeamCard member={member} />
@@ -303,10 +297,8 @@ const Team = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
 
-      {/* --- No changes to the style tag --- */}
       <style jsx>{`
         .scrollbar-hide {
           -webkit-scrollbar: none;

@@ -44,13 +44,13 @@ const Header = () => {
       {/* BACKGROUND PATCHES FOR HEADER */}
       {isScrolled && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 -left-20 w-40 h-20 bg-gradient-to-r from-purple-600/15 to-pink-600/10 rounded-full blur-2xl opacity-60" />
-          <div className="absolute top-0 -right-20 w-40 h-20 bg-gradient-to-l from-pink-600/15 to-purple-600/10 rounded-full blur-2xl opacity-60" />
+          <div className="absolute top-0 -left-10 sm:-left-20 w-20 sm:w-40 h-16 sm:h-20 bg-gradient-to-r from-purple-600/15 to-pink-600/10 rounded-full blur-2xl opacity-60" />
+          <div className="absolute top-0 -right-10 sm:-right-20 w-20 sm:w-40 h-16 sm:h-20 bg-gradient-to-l from-pink-600/15 to-purple-600/10 rounded-full blur-2xl opacity-60" />
         </div>
       )}
 
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Enhanced Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -58,15 +58,15 @@ const Header = () => {
             className="flex items-center cursor-pointer"
             onClick={() => scrollToSection('#home')}
           >
-            {/* Step 1: Add an img tag for your logo */}
+            {/* Logo with responsive sizing */}
             <img 
               src="/hn-logo.png" 
               alt="Vehnicate Logo" 
-              className="h-12" // Adjust size and margin as needed
+              className="h-8 sm:h-10 md:h-12 mr-2 sm:mr-3" 
               onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/40x40/000000/FFFFFF?text=Error'; }}
             />
             <motion.span 
-              className="font-ledger text-3xl text-white"
+              className="font-ledger text-xl sm:text-2xl md:text-3xl text-white"
               transition={{ duration: 0.3 }}
             >
               vehnicate
@@ -75,7 +75,7 @@ const Header = () => {
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-8 font-ledger text-l">
+            <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-8 font-ledger">
               {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -85,7 +85,7 @@ const Header = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 transition-all duration-300 relative group font-medium hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:bg-clip-text hover:text-transparent"
+                  className="text-sm lg:text-base xl:text-lg text-gray-300 transition-all duration-300 relative group font-medium hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:bg-clip-text hover:text-transparent"
                 >
                   {item.name}
                   
@@ -115,7 +115,7 @@ const Header = () => {
                 animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
               </motion.div>
             </motion.button>
           </div>
@@ -133,17 +133,17 @@ const Header = () => {
           className="md:hidden overflow-hidden"
         >
           <motion.div 
-            className="relative mt-4 mx-2"
+            className="relative mt-3 sm:mt-4 mx-2"
             initial={{ scale: 0.95 }}
             animate={{ scale: isMobileMenuOpen ? 1 : 0.95 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="absolute inset-0 bg-black/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-              <div className="absolute top-0 -left-10 w-32 h-16 bg-gradient-to-r from-purple-600/20 to-pink-600/15 rounded-full blur-xl opacity-50" />
-              <div className="absolute bottom-0 -right-10 w-32 h-16 bg-gradient-to-l from-pink-600/20 to-purple-600/15 rounded-full blur-xl opacity-50" />
+            <div className="absolute inset-0 bg-black/95 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+              <div className="absolute top-0 -left-8 sm:-left-10 w-24 sm:w-32 h-12 sm:h-16 bg-gradient-to-r from-purple-600/20 to-pink-600/15 rounded-full blur-xl opacity-50" />
+              <div className="absolute bottom-0 -right-8 sm:-right-10 w-24 sm:w-32 h-12 sm:h-16 bg-gradient-to-l from-pink-600/20 to-purple-600/15 rounded-full blur-xl opacity-50" />
             </div>
             
-            <div className="relative z-10 px-6 py-4 space-y-2 font-alumni">
+            <div className="relative z-10 px-4 sm:px-6 py-3 sm:py-4 space-y-1 sm:space-y-2 font-ledger">
               {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -156,24 +156,24 @@ const Header = () => {
                   whileHover={{ scale: 1.02, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 rounded-xl transition-all duration-300 font-medium relative group"
+                  className="block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 rounded-lg sm:rounded-xl transition-all duration-300 font-medium relative group"
                 >
                   <span className="relative z-10">{item.name}</span>
                   
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     whileHover={{ scale: 1.02 }}
                   />
                 </motion.button>
               ))}
               
               <motion.div 
-                className="pt-4 mt-4 border-t border-white/10"
+                className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-white/10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isMobileMenuOpen ? 1 : 0 }}
                 transition={{ duration: 0.3, delay: 0.4 }}
               >
-                <p className="text-center text-gray-400 text-sm">
+                <p className="text-center text-gray-400 text-xs sm:text-sm">
                   <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-medium">
                     vehnicate
                   </span>
