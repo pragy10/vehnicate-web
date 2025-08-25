@@ -104,7 +104,7 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[0.9] tracking-tight"
             >
-              <div className="font-ledger text-white mb-2 text-7xl">
+              <div className="font-ledger text-white mb-2 text-3xl md:7xl">
                 Empowering the nation to drive more
               </div>
               <div className="relative text-9xl py">
