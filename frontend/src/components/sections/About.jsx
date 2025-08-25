@@ -58,7 +58,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-8xl font-bold mb-8 leading-tight font-alumni">
+          <h2 className="text-8xl font-bold mb-8 leading-tight font-ledger">
             <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent">
               About
             </span>{' '}

@@ -65,16 +65,10 @@ const Footer = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-6xl md:text-8xl font-alumni font-bold mb-6 text-white">
-            Let's Drive The <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Future</span>
+          <h2 className="text-8xl font-ledger font-bold mb-6 text-white">
+            Finding the <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent"> calm </span> <br></br>in the chaos
           </h2>
           
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-ledger">
-            Join us in revolutionizing the driving experience.{" "}<br></br>
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-              Connect, compete, and get rewarded.
-            </span>{" "}
-          </p>
         </motion.div>
 
         {/* MAIN FOOTER CONTENT IN A GLASS CARD */}

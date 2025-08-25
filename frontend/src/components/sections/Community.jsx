@@ -98,7 +98,7 @@ const Community = () => {
         >
           
 
-          <h2 className="text-8xl font-alumni font-bold mb-6 text-white">
+          <h2 className="text-8xl font-ledger font-bold mb-6 text-white">
             Join Our <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Community</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -258,7 +258,7 @@ const Community = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="glass-card max-w-3xl mx-auto p-8 border border-white/10 relative overflow-hidden">
+          <div className="glass-card  font-ledger max-w-3xl mx-auto p-8 border border-white/10 relative overflow-hidden">
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Ready to Join the Community?

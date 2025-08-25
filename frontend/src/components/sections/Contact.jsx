@@ -86,7 +86,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-8xl font-alumni font-bold mb-6 text-white">
+          <h2 className="text-8xl font-ledger font-bold mb-6 text-white">
             Get In{" "}
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
               Touch

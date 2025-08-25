@@ -74,9 +74,6 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
       </div>
 
-
-      
-
       {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between min-h-[60vh] gap-10">
@@ -107,10 +104,10 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[0.9] tracking-tight"
             >
-              <div className="font-alumni text-white mb-2 text-8xl">
+              <div className="font-ledger text-white mb-2 text-7xl">
                 Empowering the nation to drive more
               </div>
-              <div className="relative text-9xl">
+              <div className="relative text-9xl py">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentWordIndex}
@@ -121,7 +118,7 @@ const Hero = () => {
                       duration: 0.6,
                       ease: [0.25, 0.46, 0.45, 0.94],
                     }}
-                    className="font-alumni bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent inline-block"
+                    className="font-ledger text-9xl bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent inline-block"
                   >
                     {rotatingWords[currentWordIndex]}
                   </motion.span>
@@ -141,19 +138,39 @@ const Hero = () => {
             </motion.p>
           </motion.div>
 
-          {/* RIGHT SIDE - IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 0.5, scale: 2 }}
-            transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
-            className="w-full lg:w-1/2 flex justify-center"
-          >
-            <img
-              src="/gggyrate.svg"
-              alt="Hero Illustration"
-              className="max-w-full h-auto rounded-2xl shadow-lg"
-            />
-          </motion.div>
+          {/* RIGHT SIDE - IMAGE CONTAINER */}
+          {/* Step 1: Add a relative container to hold both images */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center relative">
+            {/* Base Image (the original one) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 0.5, scale: 2 }}
+              transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
+              className="w-full flex justify-center"
+            >
+              <img
+                src="/gggyrate.svg"
+                alt="Hero Illustration Background"
+                className="max-w-full h-auto rounded-2xl shadow-lg"
+              />
+            </motion.div>
+
+            {/* Step 2: Add the new overlay image, positioned absolutely */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1.2 }}
+              transition={{ delay: 1.2, duration: 1, type: "spring", stiffness: 100 }}
+              className="absolute inset-0 flex justify-center items-center"
+            >
+              {/* You can change the src of this image to your own */}
+              <img
+                src="/car_dam.png"
+                alt="Hero Illustration Overlay"
+                className="w-full" // Example styling, adjust as needed
+                onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x400/000000/FFFFFF?text=Image+Error'; }}
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

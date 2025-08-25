@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { NAVIGATION } from '../../utils/constants'
+
+// Assuming NAVIGATION is defined in another file, for this example, I'll create a mock one.
+const NAVIGATION = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Working', href: '#working' },
+  { name: 'Team', href: '#team' },
+  { name: 'Contact', href: '#contact' },
+];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -48,12 +56,17 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="flex items-center cursor-pointer"
-            onClick={() => scrollToSection('#hero')}
+            onClick={() => scrollToSection('#home')}
           >
+            {/* Step 1: Add an img tag for your logo */}
+            <img 
+              src="/hn-logo.png" 
+              alt="Vehnicate Logo" 
+              className="h-12" // Adjust size and margin as needed
+              onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/40x40/000000/FFFFFF?text=Error'; }}
+            />
             <motion.span 
-              // 1. ADDED 'font-alumni' TO THE LOGO
               className="font-ledger text-3xl text-white"
-              
               transition={{ duration: 0.3 }}
             >
               vehnicate
@@ -62,8 +75,7 @@ const Header = () => {
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:block">
-            {/* 2. ADDED 'font-alumni' TO THE PARENT DIV FOR NAVIGATION LINKS */}
-            <div className="flex items-center space-x-8 font-alumni font-bold text-2xl">
+            <div className="flex items-center space-x-8 font-ledger text-l">
               {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -73,7 +85,6 @@ const Header = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.href)}
-                  // Note: font-medium is still useful for selecting the font weight (e.g., 500)
                   className="text-gray-300 transition-all duration-300 relative group font-medium hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:bg-clip-text hover:text-transparent"
                 >
                   {item.name}
@@ -88,8 +99,6 @@ const Header = () => {
               ))}
             </div>
           </div>
-
-          {/* ... rest of the component remains the same ... */}
           
           <div className="md:hidden">
             <motion.button
@@ -134,7 +143,6 @@ const Header = () => {
               <div className="absolute bottom-0 -right-10 w-32 h-16 bg-gradient-to-l from-pink-600/20 to-purple-600/15 rounded-full blur-xl opacity-50" />
             </div>
             
-            {/* THIS PART WAS ALREADY CORRECT! It will now work. */}
             <div className="relative z-10 px-6 py-4 space-y-2 font-alumni">
               {NAVIGATION.map((item, index) => (
                 <motion.button
