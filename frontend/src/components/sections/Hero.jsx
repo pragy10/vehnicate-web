@@ -147,7 +147,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 0.5, scale: 1.5 }}
-              transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
+              transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="w-full flex justify-center"
             >
               <img
@@ -161,7 +161,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 1, type: "spring", stiffness: 100 }}
+              transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 flex justify-center items-center"
             >
               <img

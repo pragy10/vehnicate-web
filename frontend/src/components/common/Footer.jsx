@@ -15,10 +15,8 @@ const Footer = () => {
       { name: 'Community', href: '#community' }
     ],
     product: [
-      { name: 'vehnicate App', href: '#' },
+      { name: 'vehnicate App', href: 'waitlist' },
       { name: 'RPS System', href: '#' },
-      { name: 'For Business', href: '#' },
-      { name: 'API Docs', href: '#' }
     ],
     resources: [
       { name: 'Blog', href: '#' },
@@ -61,12 +59,13 @@ const Footer = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+           transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
+
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-ledger font-bold mb-4 sm:mb-6 text-white leading-tight">
-            Finding the <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent"> calm </span> <br className="hidden sm:block" />
+            Finding the <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent "> calm </span> <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>in the chaos
           </h2>
         </motion.div>
@@ -163,7 +162,7 @@ const Footer = () => {
             >
               <Heart size={12} className="fill-current sm:w-[14px] sm:h-[14px]" />
             </motion.span>
-            by vehnicate team.
+            by team vehnicate.
           </p>
           <motion.button
             whileHover={{ scale: 1.1, y: -3 }}

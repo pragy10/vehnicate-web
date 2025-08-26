@@ -2,30 +2,35 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { User, Car, Trophy, Building } from "lucide-react";
 
+// Reusable glassmorphism card (copied from About.jsx)
+const Card = ({ children, className = '', isActive = false }) => (
+  <div className={`relative rounded-2xl border border-white/10 backdrop-blur-md bg-white/5 shadow-lg shadow-purple-500/5 ${className}`}>
+    {/* Animated gradient border */}
+    <div className={`absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 ${isActive || 'group-hover:border-purple-500/40'} ${isActive && 'border-purple-500/40'}`}></div>
+    {/* Subtle light streak */}
+    <div className={`absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl transition-transform duration-700 ${isActive || 'group-hover:scale-150'} ${isActive && 'scale-150'}`}></div>
+    {children}
+  </div>
+)
+
 const Working = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [carPosition, setCarPosition] = useState(0);
   const [carVisible, setCarVisible] = useState(true);
   const [lastPosition, setLastPosition] = useState(0);
 
-  const CarSVG = ({ color = "#ec4899" }) => (
-    <svg
-      width="48"
-      height="20"
-      viewBox="0 0 48 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-8 h-4 sm:w-10 sm:h-5 md:w-12 md:h-6"
-    >
-      {/* Body */}
-      <path
-        d="M6 10 Q10 2 18 2 H30 Q38 2 42 10 V14 H6 V10 Z"
-        fill={color}
+  // Updated CarImage component that accepts an image src
+  const CarImage = ({ src, alt = "Car", className = "w-8 h-6 sm:w-10 sm:h-7 md:w-12 md:h-8" }) => (
+    <div className={`${className} relative transform -translate-x-1/2`}>
+      <img 
+        src={src} 
+        alt={alt}
+        className="w-full h-full object-contain"
+        style={{
+          filter: "drop-shadow(0px 4px 8px rgba(0,0,0,0.5))",
+        }}
       />
-      {/* Wheels */}
-      <circle cx="14" cy="16" r="3" fill="#1a1a1a" />
-      <circle cx="34" cy="16" r="3" fill="#1a1a1a" />
-    </svg>
+    </div>
   );
 
   const steps = [
@@ -34,23 +39,27 @@ const Working = () => {
       title: "Meet Samprisha",
       description:
         "A daily commuter who loves driving but struggles with traffic and fuel costs.",
+      number: "01"
     },
     {
       icon: <Car className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Smart Driving",
       description:
         "She uses vehnicate to track driving patterns and optimize routes.",
+      number: "02"
     },
     {
       icon: <Trophy className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Earn Rewards",
       description: "Through our RPS system, she earns points for safe driving.",
+      number: "03"
     },
     {
       icon: <Building className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Real Benefits",
       description:
         "Insurance discounts, service deals, and government incentives.",
+      number: "04"
     },
   ];
 
@@ -98,14 +107,10 @@ const Working = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-ledger font-bold mb-4 sm:mb-6 lg:mb-8 text-white leading-tight">
-            How it <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Works</span>
+            How Our <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Ecosystem</span> Works
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed font-ledger max-w-4xl mx-auto px-4 sm:px-0">
-            Follow{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-              Samprisha's journey
-            </span>{" "}
-            as she transforms her daily commute.
+            Follow Samprisha's journey as she transforms her daily commute.
           </p>
         </motion.div>
 
@@ -125,7 +130,6 @@ const Working = () => {
                   <stop offset="100%" stopColor="#0a0a0a" />
                 </linearGradient>
               </defs>
-
               {/* Road base */}
               <rect
                 x="0"
@@ -135,7 +139,6 @@ const Working = () => {
                 fill="url(#roadGradient)"
                 rx="3"
               />
-
               {/* Center dashed line */}
               <motion.line
                 x1="0"
@@ -199,7 +202,7 @@ const Working = () => {
               </div>
             ))}
 
-            {/* Car */}
+            {/* Car - Updated to use image */}
             {carVisible && (
               <motion.div
                 className="absolute z-20"
@@ -211,7 +214,6 @@ const Working = () => {
                 }}
               >
                 <motion.div
-                  className="w-8 h-6 sm:w-10 sm:h-7 md:w-12 md:h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-md sm:rounded-lg shadow-lg relative transform -translate-x-1/2"
                   animate={{
                     y: [0, -3, 0],
                     rotateY:
@@ -225,11 +227,13 @@ const Working = () => {
                     y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
                     rotateY: { duration: 1.5, ease: "easeInOut" },
                   }}
-                  style={{
-                    filter: "drop-shadow(0px 4px 8px rgba(0,0,0,0.5))",
-                  }}
                 >
-                  <CarSVG color="#9333ea" />
+                  {/* Replace with your image source */}
+                  <CarImage 
+                    src="/car.png" 
+                    alt="Car moving along the road"
+                    className="w-12 h-10 sm:w-16 sm:h-12 md:w-20 md:h-16"
+                  />
                 </motion.div>
               </motion.div>
             )}
@@ -241,64 +245,63 @@ const Working = () => {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="group"
             >
-              {/* Ghost number */}
-              <div className="absolute -top-4 sm:-top-6 left-2 sm:left-4 text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] font-bold text-white/5 group-hover:text-purple-500/10 transition-colors duration-500 select-none z-0">
-                {index + 1}
-              </div>
-
-              {/* Card */}
-              <motion.div
-                animate={{
-                  scale: activeStep === index ? 1.05 : 1,
-                }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className={`relative bg-white/5 backdrop-blur-md border rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full z-10 overflow-visible 
-                ${
-                  activeStep === index
-                    ? "border-transparent"
-                    : "border-gray-700/50"
+              <Card 
+                className={`h-full group transition-transform duration-500 ${
+                  activeStep === index ? 'scale-[1.03]' : 'hover:scale-[1.03]'
                 }`}
-                style={{
-                  backgroundImage:
-                    activeStep === index
-                      ? "linear-gradient(#1f1f1f, #1f1f1f), linear-gradient(90deg, #9333ea, #ec4899)"
-                      : undefined,
-                  backgroundOrigin:
-                    activeStep === index ? "border-box" : undefined,
-                  backgroundClip:
-                    activeStep === index
-                      ? "padding-box, border-box"
-                      : undefined,
-                }}
+                isActive={activeStep === index}
               >
-                {/* Floating icon */}
-                <motion.div
-                  animate={{
-                    y: activeStep === index ? [-5, 0, -5] : 0,
-                  }}
-                  transition={{
-                    repeat: activeStep === index ? Infinity : 0,
-                    duration: 2,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -top-6 sm:-top-8 lg:-top-10 left-1/2 -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-lg"
-                >
-                  <div className="text-white">{step.icon}</div>
-                </motion.div>
+                <div className="relative p-4 sm:p-6 lg:p-8">
+                  {/* Step number */}
+                  <div className={`absolute top-2 right-2 sm:top-4 sm:right-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold transition-colors duration-500 ${
+                    activeStep === index 
+                      ? 'text-purple-500/20' 
+                      : 'text-gray-700/10 group-hover:text-purple-500/20'
+                  }`}>
+                    {step.number}
+                  </div>
 
-                <h3 className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl font-bold text-white font-ledger leading-tight">
-                  {step.title}
-                </h3>
-                <p className="text-gray-300 text-xs sm:text-sm mt-2 sm:mt-3 font-ledger leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
+                  {/* Floating icon */}
+                  <div className={`absolute -top-4 sm:-top-6 lg:-top-8 left-4 sm:left-6 lg:left-8 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-xl shadow-purple-500/30 transform transition-all duration-500 ${
+                    activeStep === index 
+                      ? 'rotate-6 scale-110' 
+                      : 'group-hover:rotate-6 group-hover:scale-110'
+                  }`}>
+                    <div className="text-white">{step.icon}</div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-8 sm:mt-10 lg:mt-12">
+                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 transition-colors duration-300 font-ledger leading-tight ${
+                      activeStep === index 
+                        ? 'text-purple-300' 
+                        : 'text-white group-hover:text-purple-300'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className={`text-sm sm:text-base transition-colors duration-300 font-ledger leading-relaxed ${
+                      activeStep === index 
+                        ? 'text-gray-200' 
+                        : 'text-gray-400 group-hover:text-gray-200'
+                    }`}>
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-pink-500/5 transition-opacity duration-500 ${
+                    activeStep === index 
+                      ? 'opacity-100' 
+                      : 'opacity-0 group-hover:opacity-100'
+                  }`}></div>
+                </div>
+              </Card>
             </motion.div>
           ))}
         </div>

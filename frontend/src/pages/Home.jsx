@@ -8,17 +8,18 @@ import Team from '../components/sections/Team'
 import Community from '../components/sections/Community'
 import Contact from '../components/sections/Contact'
 import Waitlist from '../components/sections/Waitlist'
+import WhyDoIt from '../components/sections/WhyDoIt'
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
       <Hero />
+      <WhyDoIt/>
       <About />
       <Working />
-      <Team />
-      <Community />
       <Waitlist/>
+      <Team />
       <Contact />
       <Footer />
     </div>

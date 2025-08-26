@@ -18,7 +18,7 @@ const About = () => {
     {
       icon: <Database className="w-6 sm:w-8 md:w-10 lg:w-10 h-6 sm:h-8 md:h-10 lg:h-10" />,
       title: "Data Acquisition & Analysis",
-      description: "Advanced algorithms to acquire and analyze vehicle movement data with precision.",
+      description: "Acquiring data from IMU & Camera in parallel and analyze vehicle movement data with precision using advanced algorithms.",
       number: "01"
     },
     {
@@ -29,14 +29,14 @@ const About = () => {
     },
     {
       icon: <Handshake className="w-6 sm:w-8 md:w-10 lg:w-10 h-6 sm:h-8 md:h-10 lg:h-10" />,
-      title: "Strategic Partnerships",
-      description: "Collaborating with insurance companies, service centers, government, and fleet owners.",
+      title: "Strategic Partnerships & Incentivization",
+      description: "Through partnerships with insurers, service centers, government, and fleet owners, users can redeem points for impactful rewards via our reward-penalty system.",
       number: "03"
     },
     {
       icon: <Target className="w-6 sm:w-8 md:w-10 lg:w-10 h-6 sm:h-8 md:h-10 lg:h-10" />,
-      title: "RPS Incentivization",
-      description: "Creating meaningful incentives based on our comprehensive reward penalty system.",
+      title: "Digital Twin Driving Assistance",
+      description: "Helps drivers anticipate road defects and assets like potholes and speedbumps, using a crowdsourced digital twin of the road network.",
       number: "04"
     }
   ]
@@ -56,7 +56,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight font-ledger">
             <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent">
@@ -70,15 +70,11 @@ const About = () => {
 
           <div className="max-w-4xl mx-auto font-ledger">
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0">
+              <br></br>
               We build an ecosystem to support{' '}
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
                 gamified driving
               </span>.
-            </p>
-            <p className="text-base sm:text-lg text-gray-400 leading-relaxed px-4 sm:px-0">
-              From acquiring & analyzing data on vehicle movements to quantifying driving behavior with the vehnicate Reward Penalty System (RPS)
-              to partnering with insurance companies, vehicle service centers, government, and fleet owners
-              to incentivize the RPS.
             </p>
           </div>
         </motion.div>
