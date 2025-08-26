@@ -142,7 +142,7 @@ const WhyDoIt = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
@@ -155,9 +155,11 @@ const WhyDoIt = () => {
             </span>
             insights, something no one else can.<br></br>
             <br></br>
-            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent ">
-              One product to tackle them all
-            </span>
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 px-2 py-1 rounded-md">
+  <span className="text-black font-semibold">
+    One product to tackle them all
+  </span>
+</span>
           </p>
         </motion.div>
       </div>
