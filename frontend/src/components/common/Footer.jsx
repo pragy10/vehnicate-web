@@ -113,7 +113,7 @@ const Footer = () => {
                 <motion.a 
                   whileHover={{ scale: 1.1, y: -2 }} 
                   whileTap={{ scale: 0.9 }} 
-                  href={`mailto:${COMPANY_INFO.email}`} 
+                  href={`mailto:${COMPANY_INFO.social.email}`} 
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-300"
                 >
                   <Mail size={16} className="sm:w-[18px] sm:h-[18px]" />

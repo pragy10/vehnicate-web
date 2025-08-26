@@ -44,8 +44,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
       title: "Email Us",
-      details: "hello@vehnicate.com",
-      action: "mailto:hello@vehnicate.com",
+      details: "vehnicate.web@gmail.com",
+      action: "mailto:vehnicate.web@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />,
