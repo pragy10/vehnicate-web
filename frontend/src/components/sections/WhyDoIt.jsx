@@ -16,12 +16,12 @@ const Card = ({ children, className = "" }) => (
 
 const slides = [
   {
-    text: `" On an average, India loses a person once in every 3 minutes and 3% of its GDP to road chaos. Chaos caused by the nation’s driving attitude. "`,
-    image: "/road_accident.jpg", // replace with your image path
+    text: `"On average, India loses one person every 3 minutes and 3% of its GDP to road chaos. Chaos caused by the nation’s driving attitude."`,
+    image: "/road_accident.jpg",
   },
   {
-    text: `" In first six months of 2025, over 29,000 die in national highway accidents, more than 50% of last year. "`,
-    image: "/road_accident2.png", // replace with your image path
+    text: `"In the first six months of 2025, over 29,000 people died in national highway accidents — more than 50% of last year’s total."`,
+    image: "/road_accident2.png",
   },
 ];
 
@@ -31,7 +31,7 @@ const causes = [
   "Poor Infrastructure",
   "Human Factors",
   "Enforcement Issues",
-  "Vehicle Failure  ",
+  "Vehicle Failure",
 ];
 
 const WhyDoIt = () => {
@@ -73,8 +73,8 @@ const WhyDoIt = () => {
           </h2>
         </motion.div>
 
-        {/* Sliding cards (transparent, no glassy effect) */}
-        <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[450px] mb-16">
+        {/* Sliding cards */}
+        <div className="relative w-full min-h-[350px] sm:min-h-[400px] lg:min-h-[450px] mb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -82,10 +82,10 @@ const WhyDoIt = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 flex flex-col lg:flex-row"
+              className="absolute inset-0 flex flex-col xl:flex-row"
             >
               {/* Left content */}
-              <div className="flex-1 flex items-center justify-center p-6 sm:p-10 text-center lg:text-left">
+              <div className="flex-1 flex items-center justify-center p-6 sm:p-10 text-center xl:text-left">
                 <p className="text-lg sm:text-xl lg:text-4xl font-ledger text-gray-200 leading-relaxed">
                   {slides[current].text}
                 </p>
@@ -102,7 +102,7 @@ const WhyDoIt = () => {
           </AnimatePresence>
         </div>
 
-        {/* Causes Section - Split layout */}
+        {/* Causes Section */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
           {/* Left: Cards */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -133,7 +133,7 @@ const WhyDoIt = () => {
               viewport={{ once: true }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold font-ledger text-white text-center"
             >
-              ...boils down to these factors
+              Boils down to these factors
             </motion.h3>
           </div>
         </div>
@@ -147,19 +147,19 @@ const WhyDoIt = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <p className="text-lg sm:text-xl lg:text-3xl text-gray-300 font-ledger leading-relaxed">
-            Small driving actions create huge outcomes. <br />
+            Small driving actions lead to huge outcomes. <br />
             That’s why we gamify every movement using
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              {" "}
-              IMU + camera{" "}
+              {" "}IMU + camera{" "}
             </span>
-            insights, something no one else can.<br></br>
-            <br></br>
+            insights, something no one else can.
+            <br />
+            <br />
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 px-2 py-1 rounded-md">
-  <span className="text-black font-semibold">
-    One product to tackle them all
-  </span>
-</span>
+              <span className="text-black font-semibold">
+                One product to tackle them all
+              </span>
+            </span>
           </p>
         </motion.div>
       </div>

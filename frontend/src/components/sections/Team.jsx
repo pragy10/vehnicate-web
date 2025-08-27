@@ -53,7 +53,7 @@ const Team = () => {
     },
     {
       id: 4,
-      name: "Mythrayi M R",
+      name: "Mythrayi ",
       role: "Chief Advisor",
       image: "/mythrayi.jpg",
       social: {
@@ -113,7 +113,7 @@ const Team = () => {
       id: 9,
       name: "Rahul R",
       role: "Technical Member, hn RPS",
-      image: "/api/placeholder/300/400",
+      image: "/rahul.jpg",
       social: {
         github: "https://github.com/Rahul2671",
         linkedin: "https://www.linkedin.com/in/rahul-r-9886a232a/",
