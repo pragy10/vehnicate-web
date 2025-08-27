@@ -22,7 +22,7 @@ const Team = () => {
       id: 1,
       name: "Sai Siddharth S.E",
       role: "Co founder & CEO",
-      image: "/api/placeholder/300/400",
+      image: "/siddharth.jpg",
       social: {
         github: "https://github.com/hn-sottallu",
         linkedin: "https://in.linkedin.com/in/sai-siddharth-sottallu-5b570628a",
@@ -44,7 +44,7 @@ const Team = () => {
       id: 3,
       name: "Pragya Sekar",
       role: "Co founder",
-      image: "/api/placeholder/300/400",
+      image: "/pragya.jpg",
       social: {
         github: "https://github.com/pragy10",
         linkedin: "https://www.linkedin.com/in/pragya-sekar/",
@@ -55,7 +55,7 @@ const Team = () => {
       id: 4,
       name: "Mythrayi M R",
       role: "Chief Advisor",
-      image: "/api/placeholder/300/400",
+      image: "/mythrayi.jpg",
       social: {
         github: "https://github.com/Mythrayi-M-R",
         linkedin: "https://www.linkedin.com/in/mythrayi-m-r/",
@@ -69,7 +69,7 @@ const Team = () => {
       id: 5,
       name: "Dhruv Samuel",
       role: "Mobile App Developer",
-      image: "/api/placeholder/300/400",
+      image: "/dhruv.jpg",
       social: {
         github: "https://github.com/Embontooth",
         linkedin: "https://www.linkedin.com/in/dhruv-john-samuel/",
@@ -80,7 +80,7 @@ const Team = () => {
       id: 6,
       name: "Harishankar R",
       role: "Mobile App Developer",
-      image: "/api/placeholder/300/400",
+      image: "/harishankar.jpg",
       social: {
         github: "https://github.com/xponent-dmg",
         linkedin: "https://linkedin.com/in/james-wilson-ml",
@@ -91,7 +91,7 @@ const Team = () => {
       id: 7,
       name: "Maria Hashmi",
       role: "hn RPS Architect",
-      image: "/api/placeholder/300/400",
+      image: "/maria.jpg",
       social: {
         github: "https://github.com/mariahashmii",
         linkedin: "https://www.linkedin.com/in/maria0hashmi/",
@@ -102,7 +102,7 @@ const Team = () => {
       id: 8,
       name: "Prathish Dev",
       role: "Finance & Strategic Partnerships",
-      image: "/api/placeholder/300/400",
+      image: "/prathish.jpg",
       social: {
         github: "https://github.com/michael-chang",
         linkedin: "https://www.linkedin.com/in/prathish-dev-a9686a331/",
@@ -148,11 +148,11 @@ const Team = () => {
     <div className="flex-shrink-0 w-72 sm:w-80 lg:w-80 p-2 sm:p-4 group">
       <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden group-hover:border-purple-500/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
         <div className="relative h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-purple-600/20 to-pink-600/20">
-          <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-            <div className="text-4xl sm:text-5xl lg:text-6xl text-gray-600 group-hover:scale-110 transition-transform duration-300">
-              👤
-            </div>
-          </div>
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
           <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
