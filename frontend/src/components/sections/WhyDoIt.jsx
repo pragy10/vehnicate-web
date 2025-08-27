@@ -16,18 +16,18 @@ const Card = ({ children, className = "" }) => (
 
 const slides = [
   {
-    text: `"On average, India loses one person every 3 minutes and 3% of its GDP to road chaos. Chaos caused by the nation’s driving attitude."`,
+    text: `"On average, India loses a person every 3 minutes and 3% of its GDP to road chaos—chaos caused by the nation's driving behavior."`,
     image: "/road_accident.jpg",
   },
   {
-    text: `"In the first six months of 2025, over 29,000 people died in national highway accidents — more than 50% of last year’s total."`,
+    text: `"In the first six months of 2025, over 29,000 people died in national highway accidents—more than 50% of last year's total."`,
     image: "/road_accident2.png",
   },
 ];
 
 const causes = [
   "Overspeeding",
-  "Reckless Driving",
+  "Reckless Driving", 
   "Poor Infrastructure",
   "Human Factors",
   "Enforcement Issues",
@@ -73,8 +73,8 @@ const WhyDoIt = () => {
           </h2>
         </motion.div>
 
-        {/* Sliding cards */}
-        <div className="relative w-full min-h-[350px] sm:min-h-[400px] lg:min-h-[450px] mb-16">
+        {/* Sliding cards (transparent, no glassy effect) */}
+        <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[450px] mb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -82,10 +82,10 @@ const WhyDoIt = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 flex flex-col xl:flex-row"
+              className="absolute inset-0 flex flex-col lg:flex-row"
             >
               {/* Left content */}
-              <div className="flex-1 flex items-center justify-center p-6 sm:p-10 text-center xl:text-left">
+              <div className="flex-1 flex items-center justify-center p-6 sm:p-10 text-center lg:text-left">
                 <p className="text-lg sm:text-xl lg:text-4xl font-ledger text-gray-200 leading-relaxed">
                   {slides[current].text}
                 </p>
@@ -102,10 +102,59 @@ const WhyDoIt = () => {
           </AnimatePresence>
         </div>
 
-        {/* Causes Section */}
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
-          {/* Left: Cards */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {/* Causes Section - Fixed layout with proper spacing */}
+        <div className="mb-16">
+          {/* Main heading - always visible above on mobile/tablet */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 lg:hidden"
+          >
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold font-ledger text-white">
+              ...boils down to these factors
+            </h3>
+          </motion.div>
+
+          {/* Desktop layout - side by side */}
+          <div className="hidden lg:flex items-center gap-12">
+            {/* Left: Cards */}
+            <div className="flex-1 grid grid-cols-2 gap-6">
+              {causes.map((cause, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <Card className="p-6 text-center group hover:scale-[1.03] transition-transform duration-500">
+                    <h3 className="text-lg xl:text-xl font-semibold font-ledger text-white mb-2">
+                      {cause}
+                    </h3>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Right: "Caused by" heading - desktop only */}
+            <div className="flex-1 flex items-center justify-center">
+              <motion.h3
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-4xl xl:text-5xl 2xl:text-6xl font-bold font-ledger text-white text-center leading-tight"
+              >
+                ...boils down to these factors
+              </motion.h3>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet layout - stacked */}
+          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6">
             {causes.map((cause, index) => (
               <motion.div
                 key={index}
@@ -123,19 +172,6 @@ const WhyDoIt = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Right: "Caused by" heading */}
-          <div className="flex-1 flex items-center justify-center">
-            <motion.h3
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold font-ledger text-white text-center"
-            >
-              Boils down to these factors
-            </motion.h3>
-          </div>
         </div>
 
         {/* Closing statement */}
@@ -148,13 +184,13 @@ const WhyDoIt = () => {
         >
           <p className="text-lg sm:text-xl lg:text-3xl text-gray-300 font-ledger leading-relaxed">
             Small driving actions lead to huge outcomes. <br />
-            That’s why we gamify every movement using
+            That's why we gamify every movement using
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              {" "}IMU + camera{" "}
+              {" "}
+              IMU + camera{" "}
             </span>
-            insights, something no one else can.
-            <br />
-            <br />
+            insights, something no one else can.<br /><br />
+            
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 px-2 py-1 rounded-md">
               <span className="text-black font-semibold">
                 One product to tackle them all
