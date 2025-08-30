@@ -33,7 +33,7 @@ const Team = () => {
       id: 2,
       name: "Hari Karan R",
       role: "Co founder & CFO",
-      image: "/api/placeholder/300/400",
+      image: "/harikaran.jpg",
       social: {
         github: "https://github.com/HARIKARANhn",
         linkedin: "https://www.linkedin.com/in/hari-karan-r-936921291/",
