@@ -12,18 +12,11 @@ const Footer = () => {
       { name: 'About Us', href: '#about' },
       { name: 'How It Works', href: '#working' },
       { name: 'Our Team', href: '#team' },
-      { name: 'Community', href: '#community' }
     ],
     product: [
       { name: 'vehnicate App', href: 'waitlist' },
       { name: 'RPS System', href: '#' },
     ],
-    resources: [
-      { name: 'Blog', href: '#' },
-      { name: 'Support Center', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' }
-    ]
   }
 
   const scrollToSection = (href) => {
