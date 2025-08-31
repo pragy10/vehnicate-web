@@ -83,7 +83,7 @@ const Team = () => {
       image: "/harishankar.jpg",
       social: {
         github: "https://github.com/xponent-dmg",
-        linkedin: "https://linkedin.com/in/james-wilson-ml",
+        linkedin: "https://www.linkedin.com/in/harishankar-r216/",
         email: "harishankar.r2102@gmail.com",
       },
     },
@@ -156,12 +156,7 @@ const Team = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
           <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-            <a
-              href={member.social.github}
-              className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-purple-600/50 transition-all duration-200 hover:scale-110"
-            >
-              <Github size={14} className="sm:w-4 sm:h-4" />
-            </a>
+            
             <a
               href={member.social.linkedin}
               className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-pink-600/50 transition-all duration-200 hover:scale-110"
