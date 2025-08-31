@@ -106,7 +106,7 @@ const Team = () => {
       social: {
         github: "https://github.com/michael-chang",
         linkedin: "https://www.linkedin.com/in/prathish-dev-a9686a331/",
-        email: "michael@vehnicate.com",
+        email: "",
       },
     },
     {
