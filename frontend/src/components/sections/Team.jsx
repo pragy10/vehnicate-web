@@ -40,19 +40,9 @@ const Team = () => {
         email: "harikaran.hn2005@gmail.com",
       },
     },
+    
     {
       id: 3,
-      name: "Pragya Sekar",
-      role: "Co founder",
-      image: "/pragya.jpg",
-      social: {
-        github: "https://github.com/pragy10",
-        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
-        email: "pragya.skr10@gmail.com",
-      },
-    },
-    {
-      id: 4,
       name: "Mythrayi ",
       role: "Chief Advisor",
       image: "/mythrayi.jpg",
@@ -65,6 +55,17 @@ const Team = () => {
   ];
 
   const engineers = [
+    {
+      id: 4,
+      name: "Pragya Sekar",
+      role: "ML Developer",
+      image: "/pragya.jpg",
+      social: {
+        github: "https://github.com/pragy10",
+        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
+        email: "pragya.skr10@gmail.com",
+      },
+    },
     {
       id: 5,
       name: "Dhruv Samuel",
