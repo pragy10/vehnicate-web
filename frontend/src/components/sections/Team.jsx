@@ -31,7 +31,7 @@ const Team = () => {
     },
     {
       id: 2,
-      name: "Hari Karan R",
+      name: "Hari Karan ",
       role: "Co founder & CFO",
       image: "/harikaran.jpg",
       social: {
@@ -40,7 +40,17 @@ const Team = () => {
         email: "harikaran.hn2005@gmail.com",
       },
     },
-    
+    {
+      id: 4,
+      name: "Pragya Sekar",
+      role: "Co founder & CTO",
+      image: "/pragya.jpg",
+      social: {
+        github: "https://github.com/pragy10",
+        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
+        email: "pragya.skr10@gmail.com",
+      },
+    },
     {
       id: 3,
       name: "Mythrayi ",
@@ -55,17 +65,6 @@ const Team = () => {
   ];
 
   const engineers = [
-    {
-      id: 4,
-      name: "Pragya Sekar",
-      role: "ML Developer",
-      image: "/pragya.jpg",
-      social: {
-        github: "https://github.com/pragy10",
-        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
-        email: "pragya.skr10@gmail.com",
-      },
-    },
     {
       id: 5,
       name: "Dhruv Samuel",
@@ -88,19 +87,9 @@ const Team = () => {
         email: "harishankar.r2102@gmail.com",
       },
     },
+    
     {
       id: 7,
-      name: "Maria Hashmi",
-      role: "hn RPS Architect",
-      image: "/maria.jpg",
-      social: {
-        github: "https://github.com/mariahashmii",
-        linkedin: "https://www.linkedin.com/in/maria0hashmi/",
-        email: "maria.hashmi292006@gmail.com",
-      },
-    },
-    {
-      id: 8,
       name: "Prathish Dev",
       role: "Finance & Strategic Partnerships",
       image: "/prathish.jpg",
@@ -111,14 +100,14 @@ const Team = () => {
       },
     },
     {
-      id: 9,
-      name: "Rahul R",
-      role: "Technical Member, hn RPS",
-      image: "/rahul.jpg",
+      id: 8,
+      name: "Nandu Mahesh",
+      role: "ML Developer",
+      image: "/nandu.jpg",
       social: {
-        github: "https://github.com/Rahul2671",
-        linkedin: "https://www.linkedin.com/in/rahul-r-9886a232a/",
-        email: "rahulsubha1983@gmail.com",
+        github: "https://github.com/ExPLICIT-27",
+        linkedin: "https://www.linkedin.com/in/nandumahesh/",
+        email: "nandumahesh2004@gmail.com",
       },
     },
   ];
