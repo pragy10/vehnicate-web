@@ -54,7 +54,7 @@ const Team = () => {
   ];
 
   const engineers = [
-    
+
     {
       id: 5,
       name: "Dhruv Samuel",
@@ -77,7 +77,7 @@ const Team = () => {
         email: "harishankar.r2102@gmail.com",
       },
     },
-    
+
     {
       id: 7,
       name: "Prathish Dev",
@@ -98,6 +98,17 @@ const Team = () => {
         github: "https://github.com/ExPLICIT-27",
         linkedin: "https://www.linkedin.com/in/nandumahesh/",
         email: "nandumahesh2004@gmail.com",
+      },
+    },
+    {
+      id: 9,
+      name: "Pragya Sekar",
+      role: "ML Developer",
+      image: "/pragya.jpg",
+      social: {
+        github: "https://github.com/pragy10",
+        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
+        email: "pragya.skr10@gmail.com",
       },
     },
   ];
@@ -136,7 +147,7 @@ const Team = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
           <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-            
+
             <a
               href={member.social.linkedin}
               className="p-1.5 sm:p-2 bg-black/70 backdrop-blur-sm rounded-lg text-gray-300 hover:text-white hover:bg-pink-600/50 transition-all duration-200 hover:scale-110"
@@ -229,21 +240,19 @@ const Team = () => {
             >
               <button
                 onClick={() => setActiveTab("leaders")}
-                className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
-                  activeTab === "leaders"
+                className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${activeTab === "leaders"
                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg"
                     : "text-gray-400 hover:text-white"
-                }`}
+                  }`}
               >
                 Leadership
               </button>
               <button
                 onClick={() => setActiveTab("engineers")}
-                className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
-                  activeTab === "engineers"
+                className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${activeTab === "engineers"
                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg"
                     : "text-gray-400 hover:text-white"
-                }`}
+                  }`}
               >
                 Engineers
               </button>
