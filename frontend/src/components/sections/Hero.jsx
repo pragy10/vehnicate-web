@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Star, Users, Award, Clock } from "lucide-react";
+//import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
+const MotionLink = motion(Link);
 const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -85,17 +88,20 @@ const Hero = () => {
             className="space-y-4 sm:space-y-6 lg:space-y-8 max-w-2xl text-center lg:text-left w-full lg:w-auto"
           >
             {/* Announcement */}
-            <motion.div
+            <MotionLink
+              to="/map"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full backdrop-blur-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full backdrop-blur-sm cursor-pointer hover:border-pink-400 hover:shadow-lg transition-all duration-300"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
               <span className="text-xs sm:text-sm font-medium text-gray-300">
-                Now in Beta • Join the Revolution
+                maps is now live • explore!
               </span>
-            </motion.div>
+            </MotionLink>
 
             {/* Heading */}
             <motion.h1
