@@ -20,8 +20,19 @@ const Team = () => {
   const leaders = [
     {
       id: 1,
+      name: "Pragya Sekar",
+      role: "Co-Founder & CTO",
+      image: "/pragya.jpg",
+      social: {
+        github: "https://github.com/pragy10",
+        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
+        email: "pragya.skr10@gmail.com",
+      },
+    },
+    {
+      id: 2,
       name: "Sai Siddharth S.E",
-      role: "Co founder & CEO",
+      role: "Co-founder & CEO",
       image: "/siddharth.jpg",
       social: {
         github: "https://github.com/hn-sottallu",
@@ -30,7 +41,7 @@ const Team = () => {
       },
     },
     {
-      id: 2,
+      id: 3,
       name: "Hari Karan ",
       role: "Co founder & CFO",
       image: "/harikaran.jpg",
@@ -41,7 +52,7 @@ const Team = () => {
       },
     },
     {
-      id: 3,
+      id: 4,
       name: "Mythrayi ",
       role: "Chief Advisor",
       image: "/mythrayi.jpg",
@@ -98,17 +109,6 @@ const Team = () => {
         github: "https://github.com/ExPLICIT-27",
         linkedin: "https://www.linkedin.com/in/nandumahesh/",
         email: "nandumahesh2004@gmail.com",
-      },
-    },
-    {
-      id: 9,
-      name: "Pragya Sekar",
-      role: "ML Developer",
-      image: "/pragya.jpg",
-      social: {
-        github: "https://github.com/pragy10",
-        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
-        email: "pragya.skr10@gmail.com",
       },
     },
   ];
