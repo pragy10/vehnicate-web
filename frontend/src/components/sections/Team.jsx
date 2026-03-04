@@ -18,7 +18,17 @@ const Team = () => {
   const engineersRef = useRef(null);
 
   const leaders = [
-    
+    {
+      id: 1,
+      name: "Pragya Sekar",
+      role: "Co-Founder & CTO",
+      image: "/pragya.jpg",
+      social: {
+        github: "https://github.com/pragy10",
+        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
+        email: "pragya.skr10@gmail.com",
+      },
+    },
     {
       id: 2,
       name: "Sai Siddharth S.E",
@@ -99,17 +109,6 @@ const Team = () => {
         github: "https://github.com/ExPLICIT-27",
         linkedin: "https://www.linkedin.com/in/nandumahesh/",
         email: "nandumahesh2004@gmail.com",
-      },
-    },
-{
-      id: 1,
-      name: "Pragya Sekar",
-      role: "Co-Founder & CTO",
-      image: "/pragya.jpg",
-      social: {
-        github: "https://github.com/pragy10",
-        linkedin: "https://www.linkedin.com/in/pragya-sekar/",
-        email: "pragya.skr10@gmail.com",
       },
     },
   ];
